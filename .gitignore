@@ -8,3 +8,5 @@ bin
 jasmine-example/
 .rvmrc
 .pairs
+*.swp
+jasmine-gem-test/

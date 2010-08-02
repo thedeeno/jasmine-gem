@@ -1,4 +1,6 @@
+$LOAD_PATH.unshift File.expand_path("#{File.dirname(__FILE__)}")
 $LOAD_PATH.unshift File.expand_path("#{File.dirname(__FILE__)}/lib")
+
 require "bundler"
 Bundler.setup
 
@@ -11,7 +13,7 @@ Spec::Rake::SpecTask.new('spec') do |t|
 end
 
 namespace :jasmine do
-  require 'spec/jasmine_self_test_config'
+  require 'spec/jasmine_self_test_config.rb'
   task :server do
     puts "your tests are here:"
     puts "  http://localhost:8888/"
