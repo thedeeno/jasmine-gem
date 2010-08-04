@@ -5,13 +5,12 @@ namespace :jasmine do
 
   desc "Run continuous integration tests"
   task :ci => "jasmine:require" do
-    require "spec"
-    require 'spec/rake/spectask'
+    require "rspec"
+    require 'rspec/core/rake_task'
 
-    Spec::Rake::SpecTask.new(:jasmine_continuous_integration_runner) do |t|
-      t.spec_opts = ["--color", "--format", "specdoc"]
+    RSpec::Core::RakeTask.new(:jasmine_continuous_integration_runner) do |t|
       t.verbose = true
-      t.spec_files = ['spec/javascripts/support/jasmine_runner.rb']
+      t.pattern = 'spec/javascripts/support/jasmine_runner.rb'
     end
     Rake::Task["jasmine_continuous_integration_runner"].invoke
   end
